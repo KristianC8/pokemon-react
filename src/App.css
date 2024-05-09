@@ -1,3 +1,7 @@
+* {
+    scroll-behavior: smooth;
+}
+
 body {
     display: flex;
     flex-direction: column;
@@ -5,6 +9,7 @@ body {
     background-color: #1f1f1f;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     color: #c1c1c1;
+
 }
 
 main {
@@ -19,6 +24,32 @@ main {
     margin-top: 2rem;
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2rem 1rem;
+}
+
+.buttons-container {
+    display: flex;
+    gap: 1rem;
+}
+
+.buttons {
+    display: grid;
+    place-items: center;
+    height: 2rem;
+    width: 2rem;
+    background-color: #1f1f1f;
+    border: none;
+    cursor: pointer;
+}
+
+.buttons svg {
+    height: 1.5rem;
+    width: 1.5rem;
+    color: #c0c0c0;
+}
+
+.loading {
+    display: block;
+    margin: 0 auto;
 }

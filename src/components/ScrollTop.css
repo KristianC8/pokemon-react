@@ -1,0 +1,32 @@
+.scrolltop-btn {
+    display: grid;
+    place-items: center;
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    height: 4rem;
+    width: 4rem;
+    background-color: #101010;
+    border: none;
+    border-radius: 1rem;
+    transition: opacity ease-in-out .5s;
+}
+
+.scrolltop-btn.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.scrolltop-btn.hide {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.scrolltop-img {
+    height: 3rem;
+    width: 3em;
+    background-image: url('../assets/arrow_up.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 70%;
+}

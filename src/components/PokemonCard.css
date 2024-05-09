@@ -10,3 +10,7 @@
 .pokeCard-img {
     width: 100%;
 }
+
+.pokeCard-name {
+    font-size: 1rem;
+}

@@ -4,17 +4,23 @@ export function useGetPokemons({ urlPokemons }) {
     const [pokemones, setPokemones] = useState([])
     const [urlNext, setUrlNext] = useState('')
     const [urlPrevious, setUrlPrevious] = useState('')
+    const [loading, setLoading] = useState(true)
 
     useEffect(() => {
         if (!urlPokemons) return
+        setLoading(true)
         const getPokemones = async () => {
             try {
                 setPokemones([])
                 const res = await fetch(urlPokemons)
                 if (!res.ok) throw { status: res.status }
                 const data = await res.json()
-                setUrlNext(data.next)
-                setUrlPrevious(data.previous)
+                if (data.next) {
+                    if (data.next.includes('limit=21')) setUrlNext(data.next)
+                } else { setUrlNext(null) }
+                if (data.previous) {
+                    if (data.next.includes('limit=21')) setUrlPrevious(data.previous)
+                } else { setUrlPrevious(null) }
 
                 const pokemonPromises = data.results.map(async (obj) => {
                     try {
@@ -37,11 +43,13 @@ export function useGetPokemons({ urlPokemons }) {
                     })
             } catch (error) {
 
+            } finally {
+                setLoading(false)
             }
         }
         getPokemones()
 
     }, [urlPokemons])
 
-    return { pokemones, urlNext, urlPrevious }
+    return { pokemones, urlNext, urlPrevious, loading }
 }
