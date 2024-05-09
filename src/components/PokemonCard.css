@@ -1,0 +1,12 @@
+.pokeCard {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    background-color: #101010;
+    border-radius: 1rem;
+}
+
+
+.pokeCard-img {
+    width: 100%;
+}
