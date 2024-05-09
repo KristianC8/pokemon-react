@@ -3,5 +3,5 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
     plugins: [react()],
-    base: "https://kristianc8.github.io/Pokmeon-react"
+    base: "https://kristianc8.github.io/Pokemon-react"
 })
