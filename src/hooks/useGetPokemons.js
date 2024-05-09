@@ -15,13 +15,14 @@ export function useGetPokemons({ urlPokemons }) {
                 const res = await fetch(urlPokemons)
                 if (!res.ok) throw { status: res.status }
                 const data = await res.json()
-                if (data.next) {
-                    if (data.next.includes('limit=21')) setUrlNext(data.next)
-                } else { setUrlNext(null) }
-                if (data.previous) {
-                    if (data.next.includes('limit=21')) setUrlPrevious(data.previous)
-                } else { setUrlPrevious(null) }
-
+                // if (data.next) {
+                //     if (data.next.includes('limit=21')) setUrlNext(data.next)
+                // } else { setUrlNext(null) }
+                // if (data.previous) {
+                //     if (data.next.includes('limit=21')) setUrlPrevious(data.previous)
+                // } else { setUrlPrevious(null) }
+                setUrlNext(data.next)
+                setUrlPrevious(data.previous)
                 const pokemonPromises = data.results.map(async (obj) => {
                     try {
                         const res = await fetch(obj.url)
